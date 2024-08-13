@@ -1,4 +1,3 @@
-from transformers import T5Tokenizer, T5ForConditionalGeneration
 from senha import API_KEY
 import requests, json
 
@@ -8,7 +7,7 @@ headers = {"Authorization": f"Bearer {API_KEY}", "Content-Type": "application/js
 link = "https://api.cohere.com/v1/chat"
 
 body_mensagem = {
-    "message": "Oi, cohere! Quem inventou a lampada?",
+    "message": "Oi, cohere! Qual a capital da França?",
     "connectors": [{"id": "web-search"}]
   }
 
@@ -19,14 +18,27 @@ mensagem = requisicao.json()
 
 print(mensagem["text"])
 
-# Conectar a API do T5
+# from transformers import AutoModelForCausalLM, AutoTokenizer
 
-# tokenizer = T5Tokenizer.from_pretrained("google-t5/t5-small")
-# model = T5ForConditionalGeneration.from_pretrained("google-t5/t5-small")
+# # Carregando o modelo e o tokenizador
+# model = AutoModelForCausalLM.from_pretrained("gpt2")
+# tokenizer = AutoTokenizer.from_pretrained("gpt2")
 
-# input_ids = tokenizer("The <extra_id_0> walks in <extra_id_1> park", return_tensors="pt").input_ids
-# labels = tokenizer("<extra_id_0> cute dog <extra_id_1> the <extra_id_2>", return_tensors="pt").input_ids
+# # Definindo a pergunta
+# question = "What is the capital of France?"
+# prompt = f"Question: {question} Answer:"
 
-# # the forward function automatically creates the correct decoder_input_ids
-# loss = model(input_ids=input_ids, labels=labels).loss
-# print(loss.item())
+# # Convertendo o prompt em IDs de tokens
+# input_ids = tokenizer(prompt, return_tensors="pt").input_ids
+
+# # Gerando a resposta
+# gen_tokens = model.generate(
+#     input_ids,
+#     do_sample=True,
+#     temperature=0.9,
+#     max_length=50,
+#     pad_token_id=tokenizer.eos_token_id
+# )
+# gen_text = tokenizer.batch_decode(gen_tokens, skip_special_tokens=True)[0]
+
+# print(gen_text)
