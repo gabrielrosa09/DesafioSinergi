@@ -1,23 +1,4 @@
-from senha import API_KEY
-import requests, json
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
-
-# Conectar a API do Cohere
-
-headers = {"Authorization": f"Bearer {API_KEY}", "Content-Type": "application/json"}
-link = "https://api.cohere.com/v1/chat"
-
-body_mensagem = {
-    "message": "Oi, cohere! Qual a capital da França?",
-    "connectors": [{"id": "web-search"}]
-  }
-
-body_mensagem = json.dumps(body_mensagem)
-
-requisicao = requests.post(link, headers=headers, data=body_mensagem)
-mensagem = requisicao.json()  
-
-print(mensagem["text"])
 
 # Conectar ao GPT-2
 
