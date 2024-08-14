@@ -23,7 +23,7 @@ class ConexaoGPT(ConexaoLLM):
         
         outputs = model.generate(
             inputs, 
-            max_length=100, 
+            max_length=40, 
             num_return_sequences=1, 
             no_repeat_ngram_size=2,
             attention_mask=attention_mask,
@@ -31,6 +31,9 @@ class ConexaoGPT(ConexaoLLM):
         )
 
         mensagem = tokenizer.decode(outputs[0], skip_special_tokens=True, clean_up_tokenization_spaces=True)
+        
+        print(f"Reposta do GPT-2: {mensagem}")
+        print(f"#############################")
         
         return mensagem
     
@@ -50,6 +53,8 @@ class ConexaoCohere(ConexaoLLM):
         requisicao = requests.post(link, headers=headers, data=body_mensagem)
         mensagem = requisicao.json() 
         
+        print(f"Reposta do Cohere: " + mensagem["text"])
+        
         return mensagem["text"]
         
         
@@ -64,14 +69,14 @@ class FactoryConexao:
             raise ValueError(f"Modelo {model_name} não suportado")
         
         
-factory = FactoryConexao()
+# factory = FactoryConexao()
 
 # Para usar o GPT-2:
-conexao_gpt = factory.criar_conexao('gpt2')
-resposta_gpt = conexao_gpt.conectar("What is the capital of Germany?")
-print(resposta_gpt)
+# conexao_gpt = factory.criar_conexao('gpt2')
+# resposta_gpt = conexao_gpt.conectar("What is the capital of Germany?")
+# print(resposta_gpt)
 
 # Para usar a API da Cohere:
-conexao_cohere = factory.criar_conexao('cohere')
-resposta_cohere = conexao_cohere.conectar("What is the capital of Germany?")
-print(resposta_cohere)
+# conexao_cohere = factory.criar_conexao('cohere')
+# resposta_cohere = conexao_cohere.conectar("What is the capital of Germany?")
+# print(resposta_cohere)
