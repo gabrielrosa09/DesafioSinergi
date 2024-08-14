@@ -14,12 +14,23 @@ class ConexaoGPT(ConexaoLLM):
     def conectar(self, prompt: str) -> str:
         model = GPT2LMHeadModel.from_pretrained('gpt2')
         tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
+
+        tokenizer.pad_token = tokenizer.eos_token
         
-        inputs = tokenizer.encode(prompt, return_tensors='pt')
-    
-        outputs = model.generate(inputs, max_length=100, num_return_sequences=1, no_repeat_ngram_size=2)
+        inputs = tokenizer.encode(prompt, return_tensors='pt', add_special_tokens=True, padding=True)
         
-        mensagem = tokenizer.decode(outputs[0], skip_special_tokens=True)
+        attention_mask = inputs.ne(tokenizer.pad_token_id).long()
+        
+        outputs = model.generate(
+            inputs, 
+            max_length=100, 
+            num_return_sequences=1, 
+            no_repeat_ngram_size=2,
+            attention_mask=attention_mask,
+            pad_token_id=tokenizer.eos_token_id
+        )
+
+        mensagem = tokenizer.decode(outputs[0], skip_special_tokens=True, clean_up_tokenization_spaces=True)
         
         return mensagem
     
