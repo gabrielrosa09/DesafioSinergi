@@ -36,7 +36,7 @@ class AvaliadorComprimentoResposta(AvaliadorStrategy):
         
         return melhor_resposta
 
-class ProcessadorRespostas:
+class ProcessadorRespostasStrategy:
     def __init__(self, strategy: AvaliadorStrategy):
         self.strategy = strategy
     

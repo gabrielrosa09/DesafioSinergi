@@ -1,19 +1,19 @@
 from FactoryClass import FactoryConexao
 from InterfaceCLI import InterfaceCLI
-from StrateyClass import AvaliarClareza, AvaliadorComprimentoResposta, ProcessadorRespostas
+from StrateyClass import AvaliarClareza, AvaliadorComprimentoResposta
+from ObserverClass import ClienteObserver, ProcessadorRespostasObserver
 
 if __name__ == "__main__":
     factory = FactoryConexao()
-    cli = InterfaceCLI(factory)
-    
-    respostas = cli.criar_interface()
-    
-    avaliador_clareza = AvaliarClareza()
-    processador_clareza = ProcessadorRespostas(avaliador_clareza)
-    melhor_resposta_clareza = processador_clareza.processar(respostas)
-    print(f"Melhor resposta com base na clareza: {melhor_resposta_clareza}")
-    
-    avaliador_comprimento = AvaliadorComprimentoResposta()
-    processador_comprimento = ProcessadorRespostas(avaliador_comprimento)
-    resposta_maior_comprimento = processador_comprimento.processar(respostas)
-    print(f'Melhor resposta com base no comprimento: {resposta_maior_comprimento}')
+    interface = InterfaceCLI(factory)
+    respostas = interface.criar_interface()
+
+    # strategy = AvaliarClareza()
+    strategy = AvaliadorComprimentoResposta()
+
+    processador = ProcessadorRespostasObserver(strategy)
+    cliente_observer = ClienteObserver()
+
+    processador.adicionar_observer(cliente_observer)
+
+    processador.processar(respostas)
