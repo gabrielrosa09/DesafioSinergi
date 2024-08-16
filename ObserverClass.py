@@ -29,11 +29,11 @@ class ProcessadorRespostasObserver:
         return melhor_resposta
     
     def gerar_explicacao(self, melhor_resposta: str) -> str:
-        return f"A resposta escolhida é a do modelo {melhor_resposta[0]} porque atendeu melhor ao critério selecionado."
+        return f"\nA resposta escolhida é a do modelo {melhor_resposta[0]} porque atendeu melhor ao critério selecionado."
     
 class ClienteObserver(Observer):
     def atualizar(self, resposta: str, explicacao: str):
-        print("Nova resposta selecionada:")
+        print("\nNova resposta selecionada:")
         print(resposta)
-        print("Explicação:")
+        print("\nExplicação:")
         print(explicacao)

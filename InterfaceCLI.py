@@ -1,5 +1,6 @@
 from FactoryClass import FactoryConexao
 from CommandClass import EncapsularPrompt
+from StrateyClass import AvaliarClareza, AvaliadorComprimentoResposta
 
 class InterfaceCLI:
     def __init__(self, factory: FactoryConexao):

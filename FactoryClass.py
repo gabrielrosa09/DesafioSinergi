@@ -32,7 +32,8 @@ class ConexaoGPT(ConexaoLLM):
 
         mensagem = tokenizer.decode(outputs[0], skip_special_tokens=True, clean_up_tokenization_spaces=True)
         
-        print(f"Reposta do GPT-2: {mensagem}")
+        print("\n")
+        print(f"Resposta do GPT-2: {mensagem}")
         print("\n")
         
         return mensagem
@@ -53,7 +54,9 @@ class ConexaoCohere(ConexaoLLM):
         requisicao = requests.post(link, headers=headers, data=body_mensagem)
         mensagem = requisicao.json() 
         
-        print(f"Reposta do Cohere: " + mensagem["text"])
+        print("\n")
+        print(f"Resposta do Cohere: " + mensagem["text"])
+        print("\n")
         
         return mensagem["text"]
         
@@ -68,15 +71,3 @@ class FactoryConexao:
         else:
             raise ValueError(f"Modelo {model_name} não suportado")
         
-        
-# factory = FactoryConexao()
-
-# Para usar o GPT-2:
-# conexao_gpt = factory.criar_conexao('gpt2')
-# resposta_gpt = conexao_gpt.conectar("What is the capital of Germany?")
-# print(resposta_gpt)
-
-# Para usar a API da Cohere:
-# conexao_cohere = factory.criar_conexao('cohere')
-# resposta_cohere = conexao_cohere.conectar("What is the capital of Germany?")
-# print(resposta_cohere)
