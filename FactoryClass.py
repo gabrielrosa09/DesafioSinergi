@@ -33,7 +33,7 @@ class ConexaoGPT(ConexaoLLM):
         mensagem = tokenizer.decode(outputs[0], skip_special_tokens=True, clean_up_tokenization_spaces=True)
         
         print(f"Reposta do GPT-2: {mensagem}")
-        print(f"#############################")
+        print("\n")
         
         return mensagem
     
