@@ -8,6 +8,7 @@ Este projeto foi desenvolvido para demonstrar meus conhecimentos, com foco na re
 
 - [Instalação](#instalação)
 - [Como Usar](#como-usar)
+- [Exemplo](#exemplo)
 
 ## Instalação
 
@@ -56,3 +57,11 @@ python main.py
 - Eu poderia ter deixar minha *API_KEY* em um .env, mas para vocês rodarem irei deixar ela no repositório até a avaliação terminar.
 
 - Ainda está dando uns warnings devido as libs transformer e do torch, já tentei tratar para deixar o terminal limpo, mas sempre que rodo ainda continua. Mas o programa em si está rodando da maneira que ele deve ser rodado. 
+
+## Exemplo
+
+A seguir imagens de um exemplo de prompt da execução.
+
+[Digite o prompt](assets/Terminal-1.png)
+
+[Prompt de resposta](assets/Terminal-2.png)
