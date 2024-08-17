@@ -44,3 +44,7 @@ Para rodar o projeto é só preciso no terminar dar um:
 ```bash
 python main.py
 ```
+
+## Observação
+
+- Eu poderia ter deixar minha *API_KEY* em um .env, mas vocês rodarem irei deixar ela no repositório até a avaliação terminar.
