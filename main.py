@@ -1,7 +1,7 @@
-from FactoryClass import FactoryConexao
-from InterfaceCLI import InterfaceCLI
-from StrateyClass import AvaliarClareza, AvaliadorComprimentoResposta
-from ObserverClass import ClienteObserver, ProcessadorRespostasObserver
+from patterns.FactoryClass import FactoryConexao
+from interface_cli.InterfaceCLI import InterfaceCLI
+from patterns.StrateyClass import AvaliarClareza, AvaliadorComprimentoResposta
+from patterns.ObserverClass import ClienteObserver, ProcessadorRespostasObserver
 from rich.console import Console
 
 if __name__ == "__main__":

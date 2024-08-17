@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from FactoryClass import ConexaoLLM
+from patterns.FactoryClass import ConexaoLLM
 
 class CommandClass(ABC):
     

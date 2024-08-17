@@ -1,5 +1,5 @@
-from FactoryClass import FactoryConexao
-from CommandClass import EncapsularPrompt
+from patterns.FactoryClass import FactoryConexao
+from patterns.CommandClass import EncapsularPrompt
 from rich.console import Console
 from rich.console import Console
 

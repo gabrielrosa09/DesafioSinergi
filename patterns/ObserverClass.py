@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from StrateyClass import AvaliadorStrategy
+from patterns.StrateyClass import AvaliadorStrategy
 from rich.console import Console
 from rich.text import Text
 
