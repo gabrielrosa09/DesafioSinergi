@@ -1,16 +1,20 @@
 from FactoryClass import FactoryConexao
 from CommandClass import EncapsularPrompt
-from StrateyClass import AvaliarClareza, AvaliadorComprimentoResposta
+from rich.console import Console
+from rich.console import Console
+
+console = Console()
+
 
 class InterfaceCLI:
     def __init__(self, factory: FactoryConexao):
         self.factory = factory
         
     def criar_interface(self):
-        print("# ------------------- #")
-        print(" Bem-vindo ao ChatBot! ")
-        print("# ------------------- #")
-        prompt = input("Digite o prompt: ")
+        console.print("# ------------------- #", style="bold blue")
+        console.print(" Bem-vindo ao ChatBot! ", style="bold blue")
+        console.print("# ------------------- #", style="bold blue")
+        prompt = console.input("Digite o prompt: ")
         modelos = ['gpt2', 'cohere']
         respostas = []
         

@@ -1,5 +1,9 @@
 from abc import ABC, abstractmethod
 from StrateyClass import AvaliadorStrategy
+from rich.console import Console
+from rich.text import Text
+
+console = Console()
 
 class Observer(ABC):
     
@@ -33,7 +37,8 @@ class ProcessadorRespostasObserver:
     
 class ClienteObserver(Observer):
     def atualizar(self, resposta: str, explicacao: str):
-        print("\nNova resposta selecionada:")
-        print(resposta)
-        print("\nExplicação:")
-        print(explicacao)
+        modelo, conteudo_resposta = resposta  # Extrai a string da resposta do tuple
+        console.print("\n[bold magenta]Nova resposta selecionada:[/bold magenta]")
+        console.print(Text(conteudo_resposta, style="italic"))  # Passa a string para o Text
+        console.print("\n[bold yellow]Explicação:[/bold yellow]")
+        console.print(Text(explicacao, style="italic"))

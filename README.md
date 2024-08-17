@@ -37,6 +37,12 @@ pip install textstat
 pip install numpy==1.24.4
 ```
 
+- Para uma melhor usuabilidade do terminal, eu utilizei uma biblioteca para mostrar as respostas, que foi a lib rich.
+
+```bash
+pip install rich
+```
+
 ## Como usar
 
 Para rodar o projeto é só preciso no terminar dar um:

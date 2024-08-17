@@ -2,6 +2,10 @@ from abc import ABC, abstractmethod
 from senha import API_KEY
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 import requests, json
+from rich.console import Console
+from rich.text import Text
+
+console = Console()
 
 class ConexaoLLM(ABC):
     
@@ -32,9 +36,9 @@ class ConexaoGPT(ConexaoLLM):
 
         mensagem = tokenizer.decode(outputs[0], skip_special_tokens=True, clean_up_tokenization_spaces=True)
         
-        print("\n")
-        print(f"Resposta do GPT-2: {mensagem}")
-        print("\n")
+        console.print("\n[bold green]Resposta do GPT-2:[/bold green]")
+        console.print(Text(mensagem, style="dim"))
+        console.print("\n")
         
         return mensagem
     
@@ -54,9 +58,9 @@ class ConexaoCohere(ConexaoLLM):
         requisicao = requests.post(link, headers=headers, data=body_mensagem)
         mensagem = requisicao.json() 
         
-        print("\n")
-        print(f"Resposta do Cohere: " + mensagem["text"])
-        print("\n")
+        console.print("\n[bold cyan]Resposta do Cohere:[/bold cyan]")
+        console.print(Text(mensagem["text"], style="dim"))
+        console.print("\n")
         
         return mensagem["text"]
         
