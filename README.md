@@ -62,6 +62,6 @@ python main.py
 
 A seguir imagens de um exemplo de prompt da execução.
 
-[Digite o prompt](assets/Terminal-1.png)
+[Quando o usuário digita o prompt.](assets/Terminal-1.png)
 
-[Prompt de resposta](assets/Terminal-2.png)
+[Prompt de resposta das LLM]( assets/Terminal-2.png)
