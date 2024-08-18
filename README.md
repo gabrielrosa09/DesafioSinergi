@@ -58,6 +58,8 @@ python main.py
 
 - Ainda está dando uns warnings devido as libs transformer e do torch, já tentei tratar para deixar o terminal limpo, mas sempre que rodo ainda continua. Mas o programa em si está rodando da maneira que ele deve ser rodado. 
 
+- A documentação das funcionalidades está no decorrer do código. Achei que ficaria melhor documentar no código do que colocar no Readme, pois poderia ser perder as informações e no código está bem estrutura a documentação.
+
 ## Exemplo
 
 A seguir imagens de um exemplo de prompt da execução.
