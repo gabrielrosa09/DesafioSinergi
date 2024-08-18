@@ -60,6 +60,12 @@ python main.py
 
 - A documentação das funcionalidades está no decorrer do código. Achei que ficaria melhor documentar no código do que colocar no Readme, pois poderia se perder as informações e no código está bem estruturado a documentação.
 
+## Gravação da explicação do código
+
+- Gravei a explicação do código, caso se interessem está nesse link:
+
+[Vídeo da explicação do código.](https://youtu.be/eDTAYRJh_wM)
+
 ## Exemplo
 
 A seguir imagens de um exemplo de prompt da execução.
