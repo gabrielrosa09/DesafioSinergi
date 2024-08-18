@@ -10,9 +10,8 @@ class AvaliadorStrategy(ABC):
 # Classes AvaliarClareza que herda de AvaliadorStrategy
 class AvaliarClareza(AvaliadorStrategy):
     def avaliar(self, respostas: list) -> str:
-        # Inicializando a variável melhor_resposta como None
         melhor_resposta = None
-        
+    
         # Inicializando a variável melhor_clareza como infinito para comparação
         melhor_clareza = float('inf')
         
